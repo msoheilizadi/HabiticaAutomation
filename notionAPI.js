@@ -38,7 +38,7 @@ export async function updateAchieveHour(goalName, amountToAdd) {
     const statePageId = STATS_ID;
 
     const currentHour = page.properties['Current achieve hour']?.number || 0;
-    const currentHourStats = page.properties['Stats']?.number || 0;
+    const currentHourStats = page.properties['Current achieve hour']?.number || 0;
     const newHour = currentHour + amountToAdd;
     const newHourStats = currentHourStats + amountToAdd;
 
@@ -59,7 +59,7 @@ export async function updateAchieveHour(goalName, amountToAdd) {
       `https://api.notion.com/v1/pages/${statePageId}`,
       {
         properties: {
-          'Stats': {
+          'Current achieve hour': {
             number: newHourStats
           }
         }
